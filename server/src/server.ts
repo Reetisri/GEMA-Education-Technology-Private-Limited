@@ -44,7 +44,11 @@ if (MONGODB_URI) {
   console.warn('MONGODB_URI is not defined in .env. Starting server in console-fallback mode...');
 }
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Start Server (only if not on Vercel)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+export default app;
