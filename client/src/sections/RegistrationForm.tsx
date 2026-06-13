@@ -18,7 +18,7 @@ type FormData = z.infer<typeof formSchema>;
 export const RegistrationForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  
+
   const {
     register,
     handleSubmit,
@@ -31,9 +31,9 @@ export const RegistrationForm: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     setStatus('loading');
     setErrorMessage('');
-    
+
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-    
+
     try {
       const response = await fetch(`${API_URL}/api/enquiry`, {
         method: 'POST',
@@ -42,13 +42,13 @@ export const RegistrationForm: React.FC = () => {
         },
         body: JSON.stringify(data),
       });
-      
+
       const result = await response.json();
-      
+
       if (response.ok && result.success) {
         setStatus('success');
         reset();
-        
+
         // Playful confetti!
         confetti({
           particleCount: 150,
@@ -74,7 +74,7 @@ export const RegistrationForm: React.FC = () => {
         <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-brand-pink text-white font-extrabold text-lg px-6 py-2 rounded-full border-2 border-brand-dark shadow-playful whitespace-nowrap">
           Register Today!
         </div>
-        
+
         <h3 className="font-playful text-3xl font-extrabold text-brand-dark text-center mt-4 mb-2">
           Secure Your Spot
         </h3>
