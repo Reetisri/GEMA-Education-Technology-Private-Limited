@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-dark font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(#FF8A5B 1px, transparent 1px), radial-gradient(#118AB2 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    background-color: #FFFDF9;
+    opacity: 0.99;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Playful custom input styling */
+.playful-input {
+  @apply w-full px-4 py-3 bg-white border-2 border-brand-dark rounded-2xl focus:outline-none transition-all duration-200 text-brand-dark font-medium placeholder-gray-400 focus:ring-4 focus:ring-brand-blue/20 focus:border-brand-blue;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFDF9;
+  border-left: 2px solid #073B4C;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #FF8A5B;
+  border-radius: 6px;
+  border: 3px solid #FFFDF9;
+}
